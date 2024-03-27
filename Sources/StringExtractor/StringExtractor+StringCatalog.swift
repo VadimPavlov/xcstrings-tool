@@ -13,12 +13,6 @@ extension StringExtractor {
                     continue
                 }
 
-                // Only process manual strings
-                guard value.extractionState == .manual else {
-                    issues.append(ExtractionIssue(key: key, reason: .wrongExtractionState(value.extractionState)))
-                    continue
-                }
-
                 // Attempt to process the resource from the catalog data
                 resources.append(
                     try Resource(
